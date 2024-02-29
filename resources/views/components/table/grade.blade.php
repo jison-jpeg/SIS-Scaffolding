@@ -26,7 +26,7 @@
                         <td>{{ $grade->grade }}</td>
 
                         <td>
-                            <div class="d-flex justify-content-start">
+                            <div class="d-flex justify-content-center">
                                  {{-- Update button --}}
                                 <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#updateModal{{ $grade->id }}">
