@@ -27,9 +27,10 @@
 
                                 {{-- Update button --}}
                                 <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#updateModal">
+                                    data-bs-target="#updateModal{{ $student->id }}">
                                     Edit
                                 </button>
+
                                 <div class="mx-1"></div>
                                 {{-- Delete button form --}}
                                 <form action="{{ route('student.destroy', $student->id) }}" method="POST">

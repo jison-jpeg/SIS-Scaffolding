@@ -12,7 +12,7 @@ class SubjectController extends Controller
         return view('subject', ['subjects' => Subject::all()]);
     }
 
-    // SUBJECT POST
+    // POST SUBJECT
     function subjectPost(Request $request)
     {
         // Validate the request data
@@ -32,6 +32,28 @@ class SubjectController extends Controller
         return back()->with('success', 'Subject created successfully');
     }
 
+    //UPDATE SUBJECT
+    function subjectUpdate(Request $request, $subject)
+    {
+        $subject = Subject::findOrFail($subject);
+
+        $validatedData = $request->validate([
+            'name' => 'nullable|string',
+            'code' => 'nullable|string',
+            'description' => 'nullable|string',
+        ]);
+
+        // Remove fields with null values from the validated data
+        $validatedData = array_filter($validatedData, function ($value) {
+            return !is_null($value);
+        });
+
+        $subject->update($validatedData);
+        return back()->with('success', 'Subject updated successfully');
+    }
+
+
+    //DELETE SUBJECT
     function destroy(Subject $subject)
     {
         $subject->delete();

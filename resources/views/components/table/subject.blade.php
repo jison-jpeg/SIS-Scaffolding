@@ -24,8 +24,9 @@
                         <td>{{ $subject->description }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
+                                {{-- Update button --}}
                                 <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#updateModal">
+                                    data-bs-target="#updateModal{{ $subject->id }}">
                                     Edit
                                 </button>
                                 <div class="mx-1"></div>

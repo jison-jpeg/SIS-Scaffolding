@@ -11,10 +11,10 @@ class StudentController extends Controller
     function viewStudent()
     {
         return view('student', ['students' => Student::all()]);
-        
+
     }
 
-    // STUDENT POST
+    // POST STUDENT
     function studentPost(Request $request)
     {
         // Validate the request data
@@ -39,8 +39,27 @@ class StudentController extends Controller
         return back()->with('success', 'Student created successfully');
     }
 
+    //UPDATE STUDENT
+    function studentUpdate(Request $request, $student)
+    {
+        $student = Student::findOrFail($student);
 
+        $validatedData = $request->validate([
+            'name' => 'nullable|string',
+            'address' => 'nullable|string',
+            'age' => 'nullable|integer',
+        ]);
 
+        // Remove fields with null values from the validated data
+        $validatedData = array_filter($validatedData, function ($value) {
+            return !is_null($value);
+        });
+
+        $student->update($validatedData);
+        return back()->with('success', 'Student updated successfully');
+    }
+
+    //DELETE STUDENT
     function destroy(Student $student)
     {
         $student->delete();

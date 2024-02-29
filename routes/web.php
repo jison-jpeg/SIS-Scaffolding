@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     // STUDENT ROUTES
     Route::get('/student', [StudentController::class, 'viewStudent'])->name('student');
     Route::post('/student', [StudentController::class, 'studentPost'])->name('student.post');
-    Route::get('/student/{student}/edit', [StudentController::class, 'edit'])->name('student.edit');
+    Route::put('/student/{student}/edit', [StudentController::class, 'studentUpdate'])->name('student.update');
     Route::delete('/student/{student}', [StudentController::class, 'destroy'])->name('student.destroy');
 
     // PROFILE ROUTES
@@ -40,11 +40,13 @@ Route::middleware('auth')->group(function () {
     // SUBJECT ROUTES
     Route::get('/subject', [SubjectController::class, 'viewSubject'])->name('subject');
     Route::post('/subject', [SubjectController::class, 'subjectPost'])->name('subject.post');
+    Route::put('/subject/{subject}/edit', [SubjectController::class, 'subjectUpdate'])->name('subject.update');
     Route::delete('/subject/{subject}', [SubjectController::class, 'destroy'])->name('subject.destroy');
 
     // GRADE ROUTES
     Route::get('/grade', [GradeController::class, 'viewGrade'])->name('grade');
     Route::post('/grade', [GradeController::class, 'gradePost'])->name('grade.post');
+    Route::put('/grade/{grade}/edit', [GradeController::class, 'gradeUpdate'])->name('grade.update');
     Route::delete('/grade/{grade}', [GradeController::class, 'destroy'])->name('grade.destroy');
 });
 

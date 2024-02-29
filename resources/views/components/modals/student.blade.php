@@ -42,10 +42,9 @@
     </div>
 </div>
 
-
+@foreach ($students as $student)
 {{-- Update User Modal --}}
-
-{{-- <div class="modal fade" id="updateModal" tabindex="-1">
+<div class="modal fade" id="updateModal{{$student->id}}" tabindex="-1">
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -53,8 +52,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                
-             <form class="row g-3 needs-validation" action="{{ route('student.update', $student->id) }}" method="POST" novalidate>
+
+             <form class="row g-3 needs-validation" action="{{ route('student.update', ['student' => $student->id]) }}" method="POST" novalidate>
                 @csrf
                 @method('PUT')
                 <div class="col-md-4">
@@ -88,4 +87,4 @@
         </div>
     </div>
 </div>
-</div> --}}
+@endforeach

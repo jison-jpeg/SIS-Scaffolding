@@ -42,6 +42,25 @@ class GradeController extends Controller
         return back()->with('success', 'Grade created successfully');
     }
 
+    //UPDATE USERS
+    function gradeUpdate(Request $request, $grade)
+    {
+        $grade = Grade::findOrFail($grade);
+
+        $validatedData = $request->validate([
+            'grade' => 'required|string',
+        ]);
+
+        // Remove fields with null values from the validated data
+        $validatedData = array_filter($validatedData, function ($value) {
+            return !is_null($value);
+        });
+
+        $grade->update($validatedData);
+        return back()->with('success', 'Grade updated successfully');
+    }
+
+    //DELETE USERS
     function destroy(Grade $grade)
     {
         $grade->delete();

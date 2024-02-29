@@ -27,10 +27,12 @@
 
                         <td>
                             <div class="d-flex justify-content-start">
+                                 {{-- Update button --}}
                                 <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#updateModal">
+                                    data-bs-target="#updateModal{{ $grade->id }}">
                                     Edit
                                 </button>
+
                                 <div class="mx-1"></div>
                                 {{-- Delete button form --}}
                                 <form action="{{ route('grade.destroy', $grade->id) }}" method="POST">
