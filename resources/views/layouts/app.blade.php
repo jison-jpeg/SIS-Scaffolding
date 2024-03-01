@@ -33,13 +33,22 @@
 
 <body>
 
+    {{-- Preloader --}}
+
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border" role="status"></div>
+        </div>
+    </div>
+    
+
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">NiceAdmin</span>
+                <span class="d-none d-lg-block">SIS</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -282,19 +291,19 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ request()->is('student') ? '' : 'collapsed' }}" href="{{ url('/student') }}">
-                    <i class="bi bi-grid"></i>
+                    <i class="bi bi-mortarboard"></i>
                     <span>Student</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ request()->is('subject') ? '' : 'collapsed' }}" href="{{ url('/subject') }}">
-                    <i class="bi bi-grid"></i>
+                    <i class="bi bi bi-book"></i>
                     <span>Subject</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ request()->is('grade') ? '' : 'collapsed' }}" href="{{ url('/grade') }}">
-                    <i class="bi bi-grid"></i>
+                    <i class="bi bi-award"></i>
                     <span>Grade</span>
                 </a>
             </li>
@@ -337,6 +346,24 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        window.addEventListener("load", function () {
+            var preloader = document.getElementById("preloader");
+            preloader.classList.add("preloader-hidden");
+            setTimeout(function(){
+                preloader.style.opacity = "0";
+                setTimeout(function(){
+                    preloader.style.display = "none";
+                }, 500); // Adjust timing to match CSS transition duration
+            }, 500); // Adjust timing to match CSS transition duration
+        });
+    </script>
+    
+    
+    
+    
+    
 
 </body>
 
