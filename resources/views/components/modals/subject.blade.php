@@ -7,26 +7,26 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="row g-3" action="{{ route('subject.post') }}" method="POST" novalidate>
+                <form class="row g-3 needs-validation" action="{{ route('subject.post') }}" method="POST" novalidate>
                     @csrf
                     <div class="col-md-6">
                         <label for="name" class="form-label">Subject Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Name of the subject" required>
+                        <input type="text" class="form-control" name="name" placeholder="Name of the subject" pattern=".{2,}"  required>
                         <div class="invalid-feedback">
-                            Please enter a subject name.
+                            Please enter a valid and unique subject name.
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="code" class="form-label">Subject Code</label>
-                        <input type="text" class="form-control" name="code" placeholder="ex. IT123" required>
+                        <input type="text" class="form-control" name="code" placeholder="ex. IT123" pattern=".{2,}" required>
                         <div class="invalid-feedback">
-                            Please enter a subject code.
+                            Please enter a valid and unique subject code.
                         </div>
                     </div>
                     <div class="col-md-12">
                         <label for="description" class="form-label">Description</label>
                         <div class="col-sm-12">
-                            <textarea class="form-control" style="height: 100px" name="description" id="description" placeholder="ex. This is a description of a subject."></textarea>
+                            <textarea class="form-control" style="height: 100px" name="description" id="description" placeholder="ex. This is a description of a subject." required></textarea>
                         </div>
                     </div>
                     {{-- <div class="col-md-4">

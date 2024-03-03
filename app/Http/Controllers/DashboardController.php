@@ -13,7 +13,7 @@ class DashboardController extends Controller
 
     function viewDashboard()
     {
-        return view('dashboard', [
+        return view('pages.dashboard', [
             'userCount' => User::count(),
             'subjectCount' => Subject::count(),
             'studentCount' => Student::count()

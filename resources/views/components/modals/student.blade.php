@@ -12,26 +12,26 @@
                     @csrf
                     <div class="col-md-4">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" name="name" required>
+                        <input type="text" class="form-control" name="name" pattern=".{2,}"  required>
                         <div class="invalid-feedback">
                             Please enter a valid first name.
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" name="address" required>
+                        <input type="text" class="form-control" name="address" pattern=".{2,}" required>
                         <div class="invalid-feedback">
                             Please enter a valid address.
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <label for="age" class="form-label">Age</label>
-                        <input type="number" class="form-control" name="age" placeholder="ex. 21"
-                            pattern="[0-9]{2}" required>
+                        <input type="number" class="form-control" name="age" placeholder="ex. 21" pattern="\d{1,2}" min="0" max="99" required>
                         <div class="invalid-feedback">
                             Please provide a valid age number.
                         </div>
                     </div>
+                    
             </div>
             <div class="modal-footer">
                 <button type="reset" class="btn btn-secondary">Reset</button>

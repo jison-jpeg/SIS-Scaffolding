@@ -11,7 +11,7 @@ class GradeController extends Controller
 {
     function viewGrade()
     {
-        return view('grade', ['grades' => Grade::all(),
+        return view('pages.grade', ['grades' => Grade::all(),
         'students' => Student::all(),
         'subjects' => Subject::all()
     ]);

@@ -9,7 +9,7 @@ class SubjectController extends Controller
 {
     function viewSubject()
     {
-        return view('subject', ['subjects' => Subject::all()]);
+        return view('pages.subject', ['subjects' => Subject::all()]);
     }
 
     // POST SUBJECT

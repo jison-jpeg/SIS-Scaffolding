@@ -10,7 +10,7 @@ class StudentController extends Controller
 {
     function viewStudent()
     {
-        return view('student', ['students' => Student::all()]);
+        return view('pages.student', ['students' => Student::all()]);
 
     }
 
